@@ -9,10 +9,10 @@ import uuid
 class BaseModel:
     """pa despues"""
 
-    def __init__(slef, id, created_at, updated_at):
+    def __init__(self):
         """pipo"""
 
-        id = str(uuid.uuid4())
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = self.created_at
 
