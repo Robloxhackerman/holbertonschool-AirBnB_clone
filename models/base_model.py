@@ -33,3 +33,5 @@ class BaseModel:
         diccionaritito["__class__"] = self.__class__.__name__
         diccionaritito["created_at"] = self.created_at.isoformat()
         diccionaritito["updated_at"] = self.updated_at.isoformat()
+
+        return diccionaritito
