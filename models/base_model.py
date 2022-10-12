@@ -14,7 +14,7 @@ class BaseModel:
         """pipo"""
 
         if kwargs:
-            for PEPEOS, PIPOS in kwargs.items():
+            for PEPOS, PIPOS in kwargs.items():
                 if PEPOS in ("created_at", "updated_at"):
                     PIPOS = datetime.datetime.strptime(PIPOS, "%Y-%m-%dT%H:%M:%S.%f")
                 if PEPOS != "__class__":
