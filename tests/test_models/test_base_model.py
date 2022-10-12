@@ -8,7 +8,7 @@ import datetime
 class TestBase(unittest.TestCase):
     """aaaaa"""
 
-      def test_attributes(self):
+      def try1(self):
           """aaaaaa"""
           
           basesita = BaseModel()
