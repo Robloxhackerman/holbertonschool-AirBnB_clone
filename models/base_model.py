@@ -18,7 +18,7 @@ class BaseModel:
                 if PEPOS in ("created_at", "updated_at"):
                     PIPOS = datetime.datetime.strptime(PIPOS, "%Y-%m-%dT%H:%M:%S.%f")
                 if PEPOS != "__class__":
-                    setattr(self, arg, val)
+                    setattr(self, PEPOS, PIPOS)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
