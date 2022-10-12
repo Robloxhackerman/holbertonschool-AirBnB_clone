@@ -4,17 +4,25 @@ TLC con china
 """
 import datetime
 import uuid
+import models
 
 
 class BaseModel:
     """pa despues"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """pipo"""
 
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = self.created_at
+        if kwargs:
+            for PEPEOS, PIPOS in kwargs.items():
+                if PEPOS in ("created_at", "updated_at"):
+                    PIPOS = datetime.datetime.strptime(PIPOS, "%Y-%m-%dT%H:%M:%S.%f")
+                if PEPOS != "__class__":
+                    setattr(self, arg, val)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = self.created_at
 
     def __str__(self):
         """pipo"""
