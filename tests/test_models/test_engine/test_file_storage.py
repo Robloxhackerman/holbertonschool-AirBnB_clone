@@ -32,3 +32,14 @@ class File_Storage_Tests(unittest.TestCase):
     def test_reload(self):
         """tests reload"""
         self.assertRaises(FileNotFoundError, models.storage.reload())
+    
+    def test_init_BaseModel(self):
+        """tests init"""
+        baselina = BaseModel()
+        self.assertTrue(isinstance(self.baselina, BaseModel))
+
+    def test_save_BaseModel(self):
+        """tests save"""
+        baselina = BaseModel()
+        self.baselina.save()
+        self.assertNotEqual(self.baselina.created_at, self.baselina.updated_at)
