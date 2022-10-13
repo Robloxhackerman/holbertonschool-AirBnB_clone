@@ -39,7 +39,7 @@ class FileStorage:
         """aaaaa"""
 
         try:
-            with open(self.__file_path, mode="r") as f
+            with open(self.__file_path, mode="r") as f:
                 diccionarintin = json.loads(f.read())
                 for PEPE, PIPO in diccionrintin.items():
                     self.__object[PEPE] = eval(PIPO["__class__"])(**PIPO)
