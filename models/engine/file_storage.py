@@ -35,7 +35,7 @@ class FileStorage:
     def reload(self):
         """aaaaa"""
 
-        if path.exists(self.__objects):
+        if path.exists(self.__file_path):
             with open(self.__file_path, mode="r") as f:
                 diccionarintin = json.loads(f.read())
                 for PEPE in diccionarintin.values():
