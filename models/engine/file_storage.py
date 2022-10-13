@@ -34,6 +34,8 @@ class FileStorage:
 
     def reload(self):
         """aaaaa"""
+        
+        diccionarintin = {}
 
         if path.exists(self.__file_path):
             with open(self.__file_path, mode="r") as f:
