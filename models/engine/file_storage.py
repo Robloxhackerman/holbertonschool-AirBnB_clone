@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 class FileStorage:
     """aaaa"""
 
-    __fle_path = "file.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
