@@ -8,11 +8,8 @@ from models.base_model import BaseModel
 class FileStorage:
     """aaaa"""
 
-    def __init__(self, file_path, objects):
-        """aaaa"""
-
-        slef.__fle_path = file_path
-        self.__objects = objects
+    __fle_path = "file.json"
+    __objects = {}
 
     def all(self):
         """aaa"""
