@@ -40,4 +40,4 @@ class FileStorage:
                 diccionarintin = json.loads(f.read())
                 for PEPE in diccionarintin.values():
                     clasesita = PEPE["__class__"]
-                    self.new(eval(clasesita)(**PEPE)
+                    self.new(eval(clasesita)(**PEPE))
