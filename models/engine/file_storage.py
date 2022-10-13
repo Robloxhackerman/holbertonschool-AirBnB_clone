@@ -30,7 +30,7 @@ class FileStorage:
         for PEPE, PIPO in self.__objects.items():
             diccionarin[PEPE] = PIPO.to_dict()
         with open(self.__file_path, mode="w") as f:
-            f.write(json.dumps(diccionarin))
+            f.write(json.dump(diccionarin))
 
     def reload(self):
         """aaaaa"""
