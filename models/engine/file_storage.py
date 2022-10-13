@@ -40,5 +40,5 @@ class FileStorage:
         if path.exists(self.__file_path):
             with open(self.__file_path, mode="r") as f:
                 diccionarintin = json.loads(f.read())
-                for PEPE, PIPO in diccionrintin.items():
+                for PEPE, PIPO in diccionarintin.items():
                     self.__object[PEPE] = eval(PIPO["__class__"])(**PIPO)
