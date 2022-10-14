@@ -51,4 +51,5 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     print(datin)
-
+        else:
+            print("** class name missing **")
