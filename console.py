@@ -22,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
 
         if comandito == None:
             print("** class name missing **")
-        elif comandito not in self.clases:
+        elif comandito[0] not in self.clases:
             print("** class doesn't exist **")
         else:
             cosita = eval(comandito[0])()
