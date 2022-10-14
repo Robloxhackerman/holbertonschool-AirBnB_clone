@@ -32,5 +32,21 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
+    def dow_show(self):
+        comandito = arg.split()
+
+        if comandito == None:
+            print("** class name missing **")
+        elif comandito[0] not in self.clases:
+            print("** class doesn't exist **")
+        elif comandito[1] == None:
+            print("** instance id missing **")
+        else:
+            datin = models.storage.all().get(comandito[0] + "." + comandito[1])
+            if datin == None:
+                print("** no instance found **")
+            else:
+                print(datin)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
