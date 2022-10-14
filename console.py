@@ -33,8 +33,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_show(self, arg):
-        comandito = arg.split()
-        if comandito != None:
+        if len(args) != 0:
+            comandito = arg.split()
             arg1 = comandito[0]
             arg2 = comandito[1]
 
