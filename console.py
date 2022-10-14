@@ -16,12 +16,12 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     file = None
-    clases = ["BaseModel", 
-            "User", 
-            "Place", 
-            "State", 
-            "City", "
-            Amenity", 
+    clases = ["BaseModel",
+            "User",
+            "Place",
+            "State",
+            "City",
+            "Amenity",
             "Review"]
 
     def do_quit(self, arg):
@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             comandito = arg.split()
 
-            if comandito == None:
+            if comandito is None:
                 print("** class name missing **")
             elif comandito[0] not in self.clases:
                 print("** class doesn't exist **")
@@ -58,15 +58,15 @@ class HBNBCommand(cmd.Cmd):
             if len(arg) != 1:
                 arg2 = comandito[1]
 
-                if comandito == None:
+                if comandito is None:
                     print("** class name missing **")
                 elif arg1 not in self.clases:
                     print("** class doesn't exist **")
-                elif arg2 == None:
+                elif arg2 is None:
                     print("** instance id missing **")
                 else:
                     datin = models.storage.all().get(arg1 + "." + arg2)
-                    if datin == None:
+                    if datin is None:
                         print("** no instance found **")
                     else:
                         print(datin)
@@ -84,15 +84,15 @@ class HBNBCommand(cmd.Cmd):
             if len(arg) > 1:
                 arg2 = comandito[1]
 
-                if comandito == None:
+                if comandito is None:
                     print("** class name missing **")
                 elif arg1 not in self.clases:
                     print("** class doesn't exist **")
-                elif arg2 == None:
+                elif arg2 is None:
                     print("** instance id missing **")
                 else:
                     datin = models.storage.all().get(arg1 + "." + arg2)
-                    if datin == None:
+                    if datin is None:
                         print("** no instance found **")
                     else:
                         del models.storage.all()[arg1 + "." + arg2]
