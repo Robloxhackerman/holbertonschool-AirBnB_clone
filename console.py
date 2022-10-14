@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
        else:
            queis = cositas.keys()
            for PEPE2 in queis:
-               if queis.startswith(comandito[0]):
+               if PEPE2.startswith(comandito[0]):
                    print(str(cositas[PEPE2]))
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
