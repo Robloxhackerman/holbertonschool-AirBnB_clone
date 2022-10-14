@@ -17,17 +17,21 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         return True
 
-    def do_create(self, arg):    
-        comandito = arg.split()
+    def do_create(self, arg):
+        comandito = []
+        if len(arg) != 0:
+            comandito = arg.split()
 
-        if comandito == None:
-            print("** class name missing **")
-        elif comandito[0] not in self.clases:
-            print("** class doesn't exist **")
+            if comandito == None:
+                print("** class name missing **")
+            elif comandito[0] not in self.clases:
+                print("** class doesn't exist **")
+            else:
+                cosita = eval(comandito[0])()
+                cosita.save()
+                print(cosita.id)
         else:
-            cosita = eval(comandito[0])()
-            cosita.save()
-            print(cosita.id)
+            print("** class name missing **")
     
     def emptyline(self):
         pass
