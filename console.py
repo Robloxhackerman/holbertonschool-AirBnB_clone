@@ -5,11 +5,13 @@ import cmd
 from models.base_model import BaseModel
 import models
 from models.engine.file_storage import FileStorage
+from models.user import User
+
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     file = None
-    clases = ["BaseModel"]
+    clases = ["BaseModel", "User"]
 
     def do_quit(self, arg):
         return True
