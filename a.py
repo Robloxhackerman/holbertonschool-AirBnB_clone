@@ -1,81 +1,91 @@
 #!/usr/bin/python3
+import inspect
+import io
+import sys
+import cmd
+import shutil
+
+"""
+ Cleanup file storage
+"""
 import os
-from datetime import datetime
-from models.engine.file_storage import FileStorage
-from models.base_model import BaseModel
-
-fs = FileStorage()
 file_path = "file.json"
-try:
-    file_path = FileStorage._FileStorage__file_path
-except:
-    pass
-try:
+if not os.path.exists(file_path):
+    try:
+        from models.engine.file_storage import FileStorage
+        file_path = FileStorage._FileStorage__file_path
+    except:
+        pass
+if os.path.exists(file_path):
     os.remove(file_path)
-except:
-    pass
-try:
-    fs._FileStorage__objects.clear()
-except:
-    pass
-ids = []
 
-# First create
-for i in range(1):
-    bm = BaseModel()
-    bm.updated_at = datetime.utcnow()
-    fs.new(bm)
-    ids.append(bm.id)
 
-try:
-    os.remove(file_path)
-except:
-    pass
-fs.save()
-try:
-    fs._FileStorage__objects.clear()
-except:
-    pass
-fs.reload()
+"""
+ Backup console file
+"""
+if os.path.exists("tmp_console_main.py"):
+    shutil.copy("tmp_console_main.py", "console.py")
+shutil.copy("console.py", "tmp_console_main.py")
 
-all_reloaded = fs.all()
+"""
+ Updating console to remove "__main__"
+"""
+with open("tmp_console_main.py", "r") as file_i:
+    console_lines = file_i.readlines()
+    with open("console.py", "w") as file_o:
+        in_main = False
+        for line in console_lines:
+            if "__main__" in line:
+                in_main = True
+            elif in_main:
+                if "cmdloop" not in line:
+                    file_o.write(line.lstrip("    ")) 
+            else:
+                file_o.write(line)
+  
+import console
 
-if len(all_reloaded.keys()) != len(ids):
-    print("Missing after reload 1")
+"""
+ Create console
+"""
+console_obj = "HBNBCommand"
+for name, obj in inspect.getmembers(console):
+    if inspect.isclass(obj) and issubclass(obj, cmd.Cmd):
+        console_obj = obj
 
-for id in ids:
-    if all_reloaded.get(id) is None and all_reloaded.get("{}.{}".format("BaseModel", id)) is None:
-        print("Missing 1 {}".format(id))
+my_console = console_obj(stdout=io.StringIO(), stdin=io.StringIO())
+my_console.use_rawinput = False
 
-from models import storage
-storage.reload()
+"""
+ Exec command
+"""
+def exec_command(my_console, the_command, last_lines = 1):
+    my_console.stdout = io.StringIO()
+    real_stdout = sys.stdout
+    sys.stdout = my_console.stdout
+    the_command = my_console.precmd(the_command)
+    my_console.onecmd(the_command)
+    sys.stdout = real_stdout
+    lines = my_console.stdout.getvalue().split("\n")
+    return "\n".join(lines[(-1*(last_lines+1)):-1])
 
-# Second create
-for i in range(2):
-    bm = BaseModel()
-    bm.save()
-    ids.append(bm.id)
-try:
-    os.remove(file_path)
-except:
-    pass
-storage.save()
-try:
-    fs._FileStorage__objects.clear()
-except:
-    pass
-storage.reload()
+"""
+ Tests
+"""
+result = exec_command(my_console, "create BaseModel")
+if result is None or result == "":
+    print("FAIL: No ID retrieved")
+    
+model_id = result
 
-all_reloaded = storage.all()
+result = exec_command(my_console, "show")
+if result is None or result == "":
+    print("FAIL: no output")
+    
+search_str = "** class name missing **"
+if result != search_str:
+    print("FAIL: wrong message: \"{}\" instead of \"{}\"".format(result, search_str))
+    
+print("OK", end="")
 
-if len(all_reloaded.keys()) != len(ids):
-    print("Missing after reload 2")
-
-for id in ids:
-    if all_reloaded.get(id) is None and all_reloaded.get("{}.{}".format("BaseModel", id)) is None:
-        print("Missing 2 {}".format(id))
-
-try:
-    os.remove(file_path)
-except Exception as e:
-    pass
+shutil.copy("tmp_console_main.py", "console.py")
