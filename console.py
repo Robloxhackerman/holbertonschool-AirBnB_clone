@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
        cositas = models.storage.all()
        queis = cositas.keys()
 
-       if comandito == None:
+       if len(arg) == 0:
            for PEPE1 in cositas:
                print(str(cositas[PEPE1]))
        elif comandito[0] not in self.clases:
