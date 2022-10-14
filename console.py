@@ -96,8 +96,14 @@ class HBNBCommand(cmd.Cmd):
        cositas = models.storage.all()
 
        if comandito == None:
-           for PEPE in cositas:
-               print(str(cositas[PEPE]))
-
+           for PEPE1 in cositas:
+               print(str(cositas[PEPE1]))
+       elif comandito[0] not in self.clases:
+           print("** class doesn't exist **")
+       else:
+           queis = cositas.keys()
+           for PEPE2 in queis:
+               if quies.startwith(comandito[0]):
+                   print(str(cositas[PEPE2]))
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
