@@ -34,15 +34,17 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         comandito = arg.split()
+        arg1 = comandito[0]
+        arg2 = comandito[1]
 
         if comandito == None:
             print("** class name missing **")
-        elif comandito[0] not in self.clases:
+        elif arg1 not in self.clases:
             print("** class doesn't exist **")
-        elif comandito[1] == None:
+        elif arg2 == None:
             print("** instance id missing **")
         else:
-            datin = models.storage.all().get(comandito[0] + "." + comandito[1])
+            datin = models.storage.all().get(arg1 + "." + arg2)
             if datin == None:
                 print("** no instance found **")
             else:
