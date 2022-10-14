@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
             comandito = arg.split()
             arg1 = comandito[0]
 
-            if len(arg) >= 1:
+            if len(arg) != 1:
                 arg2 = comandito[1]
 
                 if comandito == None:
