@@ -91,5 +91,13 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def do_all(self, arg):
+       comandito = arg.split()
+       cositas = models.storage.all()
+
+       if comandito == None:
+           for PEPE in cositas:
+               print(str(cositas[PEPE]))
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
