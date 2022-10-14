@@ -94,6 +94,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
        comandito = arg.split()
        cositas = models.storage.all()
+       queis = cositas.keys()
 
        if comandito == None:
            for PEPE1 in cositas:
