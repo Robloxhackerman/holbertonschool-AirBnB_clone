@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
-    def do_show(self):
+    def do_show(self, arg):
         comandito = arg.split()
 
         if comandito == None:
