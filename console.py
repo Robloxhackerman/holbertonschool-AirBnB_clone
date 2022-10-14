@@ -34,8 +34,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         comandito = arg.split()
-        arg1 = comandito[0]
-        arg2 = comandito[1]
+        if comandito != None:
+            arg1 = comandito[0]
+            arg2 = comandito[1]
 
         if comandito == None:
             print("** class name missing **")
