@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
-   def do_destroy(self, arg):
+    def do_destroy(self, arg):
         comandito = []
         if len(arg) != 0:
             comandito = arg.split()
