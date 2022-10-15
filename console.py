@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 del models.storage.all()[arg1 + "." + arg2]
-                storage.save()
+            models.storage.save()
 
     def do_all(self, arg):
        comandito = arg.split()
