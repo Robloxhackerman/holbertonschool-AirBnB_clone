@@ -136,6 +136,14 @@ class HBNBCommand(cmd.Cmd):
             if datin is None:
                 print("** no instance found **")
             else:
+                if arg3.isdigit():
+                    arg3 = int(arg3)
+                elif arg3.replace('.', '', 1).isdigit():
+                    arg3 = float(arg3)
+                if arg4.isdigit():
+                    arg4 = int(arg4)
+                elif arg4.replace('.', '', 1).isdigit():
+                    arg4 = float(arg4)
                 setattr(datin, arg3, arg4)
 
 if __name__ == '__main__':
