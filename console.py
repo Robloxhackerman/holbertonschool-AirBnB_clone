@@ -133,9 +133,11 @@ class HBNBCommand(cmd.Cmd):
         elif len(arg) == 3:
             arg3 = comandito[2]
             print("** value missing **")
-
+        else:
             datin = models.storage.all().get(arg1 + "." + arg2)
             if datin is None:
+                print("** no instance found **")
+            else:
                 setattr(datin, arg3, arg4)
                 setattr(datin, "updated_at", datetime.datetime.now())
                 models.storage.save()
