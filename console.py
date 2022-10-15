@@ -125,20 +125,17 @@ class HBNBCommand(cmd.Cmd):
         elif comandito[0] not in self.clases:
             print("** class doesn't exist **")
         elif len(arg) == 1:
-            print("** instance id missing **")
-        elif len(arg) > 1:
             arg1 = comandito[0]
+            print("** instance id missing **")
+        elif len(arg) == 2:
             arg2 = comandito[1]
+            print("** attribute name missing **")
+        elif len(arg) == 3:
+            arg3 = comandito[2]
+            print("** value missing **")
+
             datin = models.storage.all().get(arg1 + "." + arg2)
             if datin is None:
-                print("** no instance found **")
-            elif len(arg) == 2:
-                print("** attribute name missing **")
-            elif len(arg) == 3:
-                print("** value missing **")
-            elif len(arg) > 3:
-                arg3 = comandito[2]
-                arg4 = comandito[3]
                 setattr(datin, arg3, arg4)
                 setattr(datin, "updated_at", datetime.datetime.now())
                 models.storage.save()
