@@ -124,20 +124,20 @@ class HBNBCommand(cmd.Cmd):
         arg2 = ""
         arg3 = ""
         arg4 = ""
-        if len(arg) == 0:
+        if len(comandito) == 0:
             print("** class name missing **")
         elif comandito[0] not in self.clases:
             print("** class doesn't exist **")
-        elif len(arg) == 1:
+        elif len(comandito) == 1:
             arg1 = comandito[0]
             print("** instance id missing **")
-        elif len(arg) == 2:
+        elif len(comandito) == 2:
             arg2 = comandito[1]
             print("** attribute name missing **")
-        elif len(arg) == 3:
+        elif len(comandito == 3:
             arg3 = comandito[2]
             print("** value missing **")
-        else:
+        elif len:
             arg4 = comandito[3]
             datin = models.storage.all().get(arg1 + "." + arg2)
             if datin is None:
