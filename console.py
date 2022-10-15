@@ -90,8 +90,6 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         del models.storage.all()[arg1 + "." + arg2]
                         models.storage.save()
-            else:
-                print("** instance id missing **")
         else:
             print("** class name missing **")
 
