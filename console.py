@@ -3,7 +3,7 @@
 
 import cmd
 from models.base_model import BaseModel
-import models
+from models import storage
 from models.engine.file_storage import FileStorage
 from models.user import User
 from models.place import Place
@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 del models.storage.all()[arg1 + "." + arg2]
-                models.storage.save()
+                storage.save()
 
     def do_all(self, arg):
        comandito = arg.split()
