@@ -137,8 +137,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 setattr(datin, arg3, arg4)
-                setattr(datin, "updated_at", datetime.datetime.now())
-                models.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
