@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** attribute name missing **")
             elif len(arg) == 3:
                 print("** value missing **")
-            else:
+            elif len(arg) > 3:
                 arg3 = comandito[2]
                 arg4 = comandito[3]
                 setattr(datin, arg3, arg4)
