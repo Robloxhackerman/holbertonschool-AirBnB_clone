@@ -127,21 +127,22 @@ class HBNBCommand(cmd.Cmd):
         elif len(arg) == 1:
             print("** instance id missing **")
         else:
-            arg1 = comandito[0]
-            arg2 = comandito[1]
-            datin = models.storage.all().get(arg1 + "." + arg2)
-            if datin is None:
-                print("** no instance found **")
-            elif len(arg) == 2:
-                print("** attribute name missing **")
-            elif len(arg) == 3:
-                print("** value missing **")
-            else:
-                arg3 = comandito[2]
-                arg4 = comandito[3]
-                setattr(datin, arg3, arg4)
-                setattr(datin, "updated_at", datetime.datetime.now())
-                models.storage.save()
+            if len(arg) > 3:
+                arg1 = comandito[0]
+                arg2 = comandito[1]
+                datin = models.storage.all().get(arg1 + "." + arg2)
+                if datin is None:
+                    print("** no instance found **")
+                elif len(arg) == 2:
+                    print("** attribute name missing **")
+                elif len(arg) == 3:
+                    print("** value missing **")
+                else:
+                    arg3 = comandito[2]
+                    arg4 = comandito[3]
+                    setattr(datin, arg3, arg4)
+                    setattr(datin, "updated_at", datetime.datetime.now())
+                    models.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
