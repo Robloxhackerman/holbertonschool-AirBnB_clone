@@ -145,6 +145,8 @@ class HBNBCommand(cmd.Cmd):
                 elif arg4.replace('.', '', 1).isdigit():
                     arg4 = float(arg4)
                 setattr(datin, arg3, arg4)
+                setattr(datin, 'updated_at', datetime.datetime.now())
+                models.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
