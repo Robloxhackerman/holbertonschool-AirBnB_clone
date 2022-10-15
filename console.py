@@ -61,10 +61,8 @@ class HBNBCommand(cmd.Cmd):
                 arg2 = comandito[1]
                 
                 datin = models.storage.all().get(arg1 + "." + arg2)
-                if datin is None:
-                    print("** no instance found **")
-                else:
-                    print(datin)
+            elif datin is None:
+                print("** no instance found **")
             else:
                 print("** instance id missing **")
         else:
