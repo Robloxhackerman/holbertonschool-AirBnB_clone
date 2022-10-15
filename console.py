@@ -11,7 +11,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-
+import datetime
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
@@ -117,5 +117,31 @@ class HBNBCommand(cmd.Cmd):
            for PEPE2 in queis:
                if PEPE2.startswith(comandito[0]):
                    print(str(cositas[PEPE2]))
+
+    def do_update(self, arg):
+        comandito = arg.split()
+        if len(arg) == 0:
+            print("** class name missing **")
+        elif arg[0] not in self.clases:
+            print("** class doesn't exist **")
+        elif len(arg) == 1:
+            print("** instance id missing **")
+        else:
+            arg1 = comandito[0]
+            arg2 = comandito[1]
+            datin = models.storage.all().get(arg1 + "." + arg2)
+            if datin is None:
+                print("** no instance found **")
+            elif len(arg) == 2:
+                print("** attribute name missing **")
+            elif len(arg) == 3:
+                print("** value missing **")
+            else:
+                arg3 = comandito[2]
+                arg4 = comandito[3]
+                setattr(datin, arg3, arg4)
+                setattr(datin, "updated_at", datetime.datetime.now())
+                models.storage.save()
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
