@@ -120,6 +120,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         comandito = arg.split()
+        arg1 = ""
+        arg2 = ""
+        arg3 = ""
+        arg4 = ""
         if len(arg) == 0:
             print("** class name missing **")
         elif comandito[0] not in self.clases:
@@ -134,6 +138,7 @@ class HBNBCommand(cmd.Cmd):
             arg3 = comandito[2]
             print("** value missing **")
         else:
+            arg4 = comandito[3]
             datin = models.storage.all().get(arg1 + "." + arg2)
             if datin is None:
                 print("** no instance found **")
