@@ -20,3 +20,7 @@ class TestState(unittest.TestCase):
     def test_1(self):
         usuarin = State()
         self.assertEquals(usuarin.__class__.__name__, "State")
+
+    def test_2(self):
+        usuarin = State()
+        self.assertTrue(type(usuarin.name) is str)

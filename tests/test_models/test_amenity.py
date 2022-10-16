@@ -20,3 +20,7 @@ class TestAmenity(unittest.TestCase):
     def test_1(self):
         usuarin = Amenity()
         self.assertEquals(usuarin.__class__.__name__, "Amenity")
+
+    def test_2(self):
+        usuarin = Amenity()
+        self.assertTrue(type(usuarin.name) is str)

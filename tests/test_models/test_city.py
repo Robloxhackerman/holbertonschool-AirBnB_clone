@@ -19,4 +19,9 @@ class TestCity(unittest.TestCase):
 
     def test_1(self):
         usuarin = City()
-        self.assertEquals(usuarin.__class__.__name__, "City")
+        self.assertEqual(usuarin.__class__.__name__, "City")
+
+    def test_2(self):
+        usuarin = City()
+        self.assertTrue(type(usuarin.state_id) is str)
+        self.assertTrue(type(usuarin.name) is str)

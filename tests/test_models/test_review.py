@@ -20,3 +20,9 @@ class TestReview(unittest.TestCase):
     def test_1(self):
         usuarin = Review()
         self.assertEquals(usuarin.__class__.__name__, "Review")
+
+    def test_2(self):
+        usuarin = Review()
+        self.assertTrue(type(usuarin.place_id) is str)
+        self.assertTrue(type(usuarin.user_id) is str)
+        self.assertTrue(type(usuarin.text) is str)

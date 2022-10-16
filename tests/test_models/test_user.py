@@ -23,7 +23,7 @@ class TestUser(unittest.TestCase):
 
     def test_2(self):
         usuarin = User()
-        self.assertEqual(type(usuarin.email), str)
-        self.assertEqual(type(usuarin.password), str)
-        self.assertEqual(type(usuarin.first_name), str)
-        self.assertEqual(type(usuarin.last_name), str)
+        self.assertTrue(type(usuarin.email) is str)
+        self.assertTrue(type(usuarin.password) is str)
+        self.assertTrue(type(usuarin.first_name) is str)
+        self.assertTrue(type(usuarin.last_name) is str)
