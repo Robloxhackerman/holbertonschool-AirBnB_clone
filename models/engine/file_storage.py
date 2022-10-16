@@ -19,7 +19,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """aaa"""
+        """aaaa"""
 
         CHICHO = obj.__class__.__name__ + "." + obj.id
         self.__objects[CHICHO] = obj
