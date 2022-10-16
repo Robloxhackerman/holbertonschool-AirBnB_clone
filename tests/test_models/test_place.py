@@ -33,4 +33,3 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(type(usuarin.price_by_night) is int)
         self.assertTrue(type(usuarin.latitude) is float)
         self.assertTrue(type(usuarin.longitude) is float)
-        self.assertTrue(type(usuarin.amenity_ids) is list[str])
