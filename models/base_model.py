@@ -14,11 +14,11 @@ class BaseModel:
         """pipo"""
 
         if kwargs:
-            for PEPOS, PIPOS in kwargs.items():
+            for PEPOS, P in kwargs.items():
                 if PEPOS in ("created_at", "updated_at"):
-                    PIPOS = datetime.datetime.strptime(PIPOS, "%Y-%m-%dT%H:%M:%S.%f")
+                    P = datetime.datetime.strptime(P, "%Y-%m-%dT%H:%M:%S.%f")
                 if PEPOS != "__class__":
-                    setattr(self, PEPOS, PIPOS)
+                    setattr(self, PEPOS, P)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
