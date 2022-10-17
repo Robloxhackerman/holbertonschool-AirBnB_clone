@@ -27,8 +27,8 @@ class BaseModel:
 
     def __str__(self):
         """pipo"""
-
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        clase = self.__class__.__name__
+        return "[{}] ({}) {}".format(clase, self.id, self.__dict__)
 
     def save(self):
         """pipo"""
