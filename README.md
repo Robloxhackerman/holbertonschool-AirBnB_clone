@@ -9,7 +9,7 @@
 1.  Run the file console.py with ./console.py
 2. Have fun :D
 
-###Aviables commands
+### Aviables commands
 
 | Commands | Function |
 | :------- | :------- |
