@@ -137,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(comandito) == 3:
             arg3 = comandito[2]
             print("** value missing **")
-        elif len:
+        else:
             arg4 = comandito[3]
             datin = models.storage.all().get(arg1 + "." + arg2)
             if datin is None:
