@@ -12,7 +12,7 @@
 ###Aviables commands
 
 | Commands | Function |
-| :--------: | :----- |
+| :------- | :------- |
 | ``create <class>`` | Creates a new instance |
 | ``show <class> <id>`` | Prints the string representation of an instance based on the class name and id |
 | ``destroy <class> <id>`` | Deletes an instance based on the class name and id |
