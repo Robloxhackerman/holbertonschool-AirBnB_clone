@@ -154,4 +154,5 @@ class HBNBCommand(cmd.Cmd):
                 setattr(datin, arg3, arg4)
                 setattr(datin, 'updated_at', datetime.datetime.now())
                 models.storage.save()
-
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
