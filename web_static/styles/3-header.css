@@ -3,7 +3,8 @@ header {
     height: 70px;
     width: 100%;
 
-    border-bottom: #cccccc 1px;
+    border-bottom: 1px #CCCCCC;
+    border-bottom-style: solid;
     background-image: url(../images/logo.png);
     background-repeat: no-repeat;
     background-position: 20px;
