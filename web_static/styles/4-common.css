@@ -6,11 +6,10 @@ body {
     font-size: 14px;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;;
 }
-div.container {
+.container {
     max-width: 1000px;
-    margin-top: 30;
+    margin: 30px auto;
     align-items: center;
     position: relative;
     display: flex;
-    align-items: center;
 }
