@@ -25,3 +25,17 @@ section.filters button{
 section.filters button:hover{
     opacity: 0.9;
 }
+
+div.locations{
+    height: 100%;
+    width: 25%;
+    border-right: #DDDDDD 1px solid;
+    padding-left: 30px;
+    flex-grow: 1;
+}
+div.amenities{
+    height: 100%;
+    width: 25%;
+    padding-left: 30px;
+    flex-grow: 1;
+}
