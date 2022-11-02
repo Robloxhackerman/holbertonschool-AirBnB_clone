@@ -12,4 +12,5 @@ body {
     align-items: center;
     position: relative;
     display: flex;
+    flex-direction: column;
 }
