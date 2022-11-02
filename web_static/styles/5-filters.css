@@ -4,7 +4,7 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: flex-end;
     padding-right: 30px;
@@ -22,4 +22,23 @@
 }
 section.filters button:hover{
     opacity: 0.9;
+}
+
+/** ass **/
+
+.filters > div{
+    height: 100%;
+    width: 25%;
+    flex-grow: 1;
+    padding-left: 30px;
+}
+.locations{
+    border-right: #DDDDDD 1px solid;
+}
+h3{
+    font-weight: 600;
+}
+h4{
+    font-weight: 400;
+    font-size: 14px;
 }
